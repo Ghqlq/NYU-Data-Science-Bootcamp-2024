@@ -1,46 +1,4 @@
 '''
-Week 1 Data Science Bootcamp
-'''
-
-#1 Write a function count_vowels(word)
-#that takes a word as an argument and returns the number of vowels in the word
-
-def count_vowels(word):
-    vowels = [o, u, a, i, e]
-    count = 0
-    for var in word:
-        if var in vowels:
-            count += 1
-
-    return count
-
-
-#2 Iterate through the following list of animals and print each one in all caps.
-animals=['tiger', 'elephant', 'monkey', 'zebra', 'panther']
-
-for item in animals:
-    print(item.capital) #something
-
-
-#3 Write a program that iterates from 1 to 20, printing each number and whether it's odd or even.
-
-for num in range(1, 21):
-    if num%2 == 0:
-        type = "This number is even"
-        print(num, type)
-    else:
-        type = "This number is odd"
-        print(num, type)
-
-#Write a function sum_of_integers(a, b) that takes
-#two integers as input from the user and returns their sum.
-
-def sum_of_integers(a, b):
-    return a+b
-
-
-
-'''
 Additional Challenge - Books data challenge
 '''
 books = [
@@ -94,13 +52,24 @@ def check_rating(book):
 
 def average_rating_by_genre(books, genre):
     total = 0
-    for item in books:
-        for key in items:
-            if genre not in key:
-                return "This genre is not available"
-        if books.get("title") in books:
-            total += books.get("rating")
-    return total//
+    count = 0
+    for book in books:
+        if book["genre"] == genre:
+            total += book["rating"]
+            count += 1
+    if count == 0:
+        return f"No books found in the {genre} genre."
+    return total / count
+
+
+def books_by_author(books, author):
+    lst = []
+    for book in books:
+        if book["author"] == author:
+            lst.append(book["title"])
+    if not lst:
+        raise ValueError(f"No books found by {author}.")
+    return lst
 
 
 
@@ -110,14 +79,4 @@ def average_rating_by_genre(books, genre):
 
 
 
-
-
-
-        
-            
-        
-        
-        
-
-
-
+       
